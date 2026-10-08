@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<div class="muted"><strong>Date:</strong> ' + esc(c.date) + '</div>' +
           '<p style="font-size:.95rem;margin-top:4px;">' + esc(c.desc) + '</p>' +
           '<div style="margin-top:auto;padding-top:10px;">' +
-            '<button type="button" class="btn" style="font-size:.9rem;padding:4px 12px;" onclick="alert(\'Verified certificate from ' + esc(c.org) + ' (' + esc(c.date) + ')\')">Verified Credential</button>' +
+            '<button type="button" class="btn" style="font-size:.9rem;padding:4px 12px;" onclick="alert(\'Work in progress from ' + esc(c.org) + ' (' + esc(c.date) + ')\')">Work in Progress</button>' +
           '</div>' +
         '</article>';
       }).join('');
