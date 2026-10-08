@@ -34,7 +34,10 @@
 <!-- HERO -->
 <section id="home" class="hero" style="padding-top:40px">
   <div class="hero-text">
-    <p class="label">Hello, I'm</p>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+      <p class="label" style="margin-bottom:0;">Hello, I'm</p>
+      <button type="button" class="tag gold js-open-wip-modal" style="cursor:pointer;font-size:.78rem;padding:2px 8px;border-radius:10px 5px 10px 5px;" title="View Work in Progress notice">Work in progress ✎</button>
+    </div>
     <h1><span class="name">Michael B. <span class="hl">Martinez</span></span></h1>
     <p class="title-line">Junior Developer &nbsp;|&nbsp; BS Computer Science Graduate</p>
     <p class="headline">Building practical digital solutions through code and problem-solving.</p>
@@ -153,7 +156,7 @@
     </div>
     <h3 style="margin-bottom:6px">Featured internship project</h3>
     <div class="feature">
-      <div class="shot" style="aspect-ratio:4/3">Work in Progress: Queue Management System</div>
+      <div class="shot js-open-wip-modal" style="aspect-ratio:4/3;cursor:pointer;" title="Click to view work in progress details">Work in Progress: Queue Management System</div>
       <div class="proj">
         <h3 style="font-size:1.8rem">Queue Management System</h3>
         <p class="label">For the office of Congresswoman Doc Marly Hofer</p>
@@ -182,7 +185,7 @@
     <article class="box proj">
       <span class="tag gold">Thesis project</span>
       <h3>Emergency Disaster Response Using Web Mapping</h3>
-      <div class="shot">Work in Progress</div>
+      <div class="shot js-open-wip-modal" style="cursor:pointer;" title="Click to view work in progress details">Work in Progress</div>
       <div class="kv"><b>Problem</b><span>Communities need a faster way to report disasters and get help to the right place.</span></div>
       <div class="kv"><b>What it does</b><span>Disaster reporting on a web map, location-based functionality, and tools that support emergency response.</span></div>
       <div class="kv"><b>Target community</b><span>Ipil, Zamboanga Sibugay</span></div>
@@ -193,7 +196,7 @@
     <article class="box alt proj">
       <span class="tag">Personal project</span>
       <h3>POS Barcode Scanner</h3>
-      <div class="shot">Work in Progress</div>
+      <div class="shot js-open-wip-modal" style="cursor:pointer;" title="Click to view work in progress details">Work in Progress</div>
       <div class="kv"><b>Problem</b><span>Small stores lose time and accuracy when they ring up items and track stock by hand.</span></div>
       <div class="kv"><b>What it does</b><span>Product management, barcode scanning at checkout, inventory tracking, and point-of-sale functions.</span></div>
       <div class="kv"><b>My role</b><span>Solo developer: design, build, and testing.</span></div>
@@ -204,7 +207,7 @@
     <article class="box proj">
       <span class="tag gold">DICT Internship</span>
       <h3>Queue Management System</h3>
-      <div class="shot">Work in Progress</div>
+      <div class="shot js-open-wip-modal" style="cursor:pointer;" title="Click to view work in progress details">Work in Progress</div>
       <div class="kv"><b>Problem</b><span>Government offices face overcrowding and unorganized queues for public services.</span></div>
       <div class="kv"><b>What it does</b><span>Ticketing, counter assignment, live display monitor, and queue analytics.</span></div>
       <div class="kv"><b>Client</b><span>Office of Congresswoman Doc Marly Hofer</span></div>
@@ -415,11 +418,60 @@
 </section>
 
 <footer class="wrap">
-  <span>Michael B. Martinez · Junior Developer</span>
+  <span>Michael B. Martinez </span>
   <span>Hand-crafted doodle sketchbook portfolio</span>
 </footer>
 
 </main>
+
+<!-- WORK IN PROGRESS MODAL -->
+<div id="wipModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wipModalTitle" aria-describedby="wipModalDesc">
+  <div class="modal-card">
+    <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+    <div class="modal-badge-row">
+      <span class="tag gold">Project Notice</span>
+    </div>
+    <svg class="modal-doodle" viewBox="0 0 120 110" role="img" aria-label="Work in progress doodle illustration">
+      <g fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="60" cy="94" rx="42" ry="8" fill="var(--paper-2)" stroke-width="3.5"/>
+        <path d="M36 90 L52 24 C55 14 65 14 68 24 L84 90 Z" fill="var(--gold)"/>
+        <path d="M44 64 L76 64 L72 44 L48 44 Z" fill="var(--paper)"/>
+        <path d="M44 64 L76 64"/>
+        <path d="M48 44 L72 44"/>
+        <path d="M54 28 L66 28"/>
+        <g transform="rotate(25 80 50)">
+          <path d="M72 16 L84 16 L84 76 L72 76 Z" fill="var(--paper)" stroke-width="3"/>
+          <path d="M72 76 L78 88 L84 76 Z" fill="var(--gold)" stroke-width="3"/>
+          <path d="M76 84 L80 84" stroke-width="3"/>
+          <path d="M72 26 L84 26" stroke-width="2.5"/>
+          <path d="M72 16 Q78 12 84 16" fill="var(--red)" stroke-width="3"/>
+        </g>
+        <path d="M22 28 L30 28" stroke-width="3"/>
+        <path d="M26 24 L26 32" stroke-width="3"/>
+        <path d="M96 22 L104 22" stroke-width="3"/>
+        <path d="M100 18 L100 26" stroke-width="3"/>
+        <path d="M16 62 Q20 58 24 64" stroke-width="2.5"/>
+      </g>
+    </svg>
+    <h2 id="wipModalTitle">Work in <span class="hl">Progress</span></h2>
+    <p id="wipModalDesc">
+      Welcome to my portfolio! This project is currently a <strong>work in progress</strong> as I finalize case studies, responsive features, and live demonstrations.
+    </p>
+    <div class="modal-details">
+      <div class="item">
+        <span class="bullet">✎</span>
+        <span>Some pages and interactive previews are actively being updated.</span>
+      </div>
+      <div class="item">
+        <span class="bullet">✦</span>
+        <span>You are welcome to explore my skills, experience, achievements, and resume!</span>
+      </div>
+    </div>
+    <div class="btn-row" style="justify-content:center;">
+      <button type="button" class="btn primary" id="modalContinueBtn">Continue &rarr;</button>
+    </div>
+  </div>
+</div>
 
 <script src="main.js"></script>
 </body>
