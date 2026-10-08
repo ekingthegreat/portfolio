@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Skills - Michael Martinez Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">MBM</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn primary" href="resume.html" style="padding:4px 14px;font-size:.95rem">Resume</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Skills</span>
+    </div>
+    <h1>Technical &amp; Professional <span class="hl">Skills</span></h1>
+    <p class="subtitle">A comprehensive breakdown of all the programming languages, databases, web technologies, IT networking capabilities, and developer tools I work with.</p>
+  </header>
+
+  <!-- QUICK STATS -->
+  <section style="padding-top:0;padding-bottom:32px;">
+    <div class="grid4">
+      <div class="box" style="text-align:center;">
+        <span class="label">Technologies</span>
+        <h3 style="font-size:2.2rem;color:var(--ink);margin-top:4px;">15+</h3>
+        <p style="font-size:.95rem;color:var(--ink-soft)">Languages, databases, &amp; developer tools</p>
+      </div>
+      <div class="box alt" style="text-align:center;">
+        <span class="label">Degree Major</span>
+        <h3 style="font-size:1.8rem;color:var(--ink);margin-top:4px;">Computer Programming</h3>
+        <p style="font-size:.95rem;color:var(--ink-soft)">Western Mindanao State University</p>
+      </div>
+      <div class="box" style="text-align:center;">
+        <span class="label">Experience</span>
+        <h3 style="font-size:1.8rem;color:var(--ink);margin-top:4px;">DICT Intern</h3>
+        <p style="font-size:.95rem;color:var(--ink-soft)">Government hands-on development</p>
+      </div>
+      <div class="box alt" style="text-align:center;">
+        <span class="label">Competition</span>
+        <h3 style="font-size:2.2rem;color:var(--ink);margin-top:4px;">1st Place</h3>
+        <p style="font-size:.95rem;color:var(--ink-soft)">Hack4Gov Provincial Champion</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER CONTROLS -->
+  <section style="padding-top:0;padding-bottom:20px;">
+    <div class="filters" id="skillFilters" role="group" aria-label="Filter skills by category">
+      <button type="button" data-filter="all" aria-pressed="true">All Skills</button>
+      <button type="button" data-filter="languages" aria-pressed="false">Programming Languages</button>
+      <button type="button" data-filter="web-mobile" aria-pressed="false">Web &amp; Mobile</button>
+      <button type="button" data-filter="database" aria-pressed="false">Databases</button>
+      <button type="button" data-filter="networking" aria-pressed="false">Networking &amp; IT</button>
+      <button type="button" data-filter="tools" aria-pressed="false">Developer Tools</button>
+      <button type="button" data-filter="security" aria-pressed="false">Security &amp; Problem Solving</button>
+    </div>
+  </section>
+
+  <!-- ALL SKILLS GRID -->
+  <div class="grid2" id="skillsContainer">
+
+    <!-- PROGRAMMING LANGUAGES -->
+    <article class="box skill-category skill-filter-card" data-category="languages">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Programming &amp; Scripting</h3>
+        <span class="tag gold">Core</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Foundational languages used for building backend logic, algorithms, and application flows.</p>
+      
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>PHP</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Server-side scripting, authentication, session control, form processing, and database transactions in real-world government systems like the Queue Management System.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>JavaScript (ES6+)</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Dynamic DOM interaction, asynchronous Fetch API / AJAX requests, event listeners, barcode scanning integration, and interactive client UI logic.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>C++</b>
+          <span class="tag">Academic Foundations</span>
+        </div>
+        <p>Core object-oriented programming (OOP), pointers, memory concepts, algorithm design, and structured problem-solving learned through university degree coursework.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>SQL</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Structured query writing, JOIN operations, data aggregation, index creation, table schema normalization, and database optimization.</p>
+      </div>
+    </article>
+
+    <!-- WEB & FRONTEND -->
+    <article class="box alt skill-category skill-filter-card" data-category="web-mobile">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Web &amp; Frontend Development</h3>
+        <span class="tag gold">Interface</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Structuring and styling responsive, accessible interfaces that adapt across desktop and mobile devices.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>HTML5</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Clean semantic markup, accessible forms, audio/video elements, SVG embedding, and SEO-friendly document architectures.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>CSS3 &amp; Modern Layouts</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>CSS Grid, Flexbox, custom CSS properties, responsive breakpoints, keyframe animations, and distinctive hand-drawn doodle design systems.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Web Mapping (Leaflet / GIS)</b>
+          <span class="tag">Thesis Focus</span>
+        </div>
+        <p>Geospatial coordinate mapping, interactive pin clustering, open-source tile layers, and emergency reporting workflows for disaster response.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Responsive Web Design</b>
+          <span class="tag">Standard</span>
+        </div>
+        <p>Mobile-first layouts, touch-friendly UI components, accessible color contrast, and smooth viewing across phones, tablets, and large displays.</p>
+      </div>
+    </article>
+
+    <!-- DATABASES & STORAGE -->
+    <article class="box alt skill-category skill-filter-card" data-category="database">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Databases &amp; Storage</h3>
+        <span class="tag gold">Data Layer</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Designing secure, scalable data models that store and retrieve critical application state.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>MySQL</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Relational table design, foreign key constraints, indexing for performance, transactions, phpMyAdmin administration, and relational querying.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Database Schema Design</b>
+          <span class="tag">Experienced</span>
+        </div>
+        <p>Entity-Relationship Modeling (ERD), database normalization (1NF to 3NF), ensuring data integrity and eliminating redundancy in multi-user applications.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Firebase</b>
+          <span class="tag">Familiar</span>
+        </div>
+        <p>Real-time database sync, cloud firestore documents, and cloud authentication for agile prototypes and mobile-connected backends.</p>
+      </div>
+    </article>
+
+    <!-- MOBILE DEVELOPMENT -->
+    <article class="box skill-category skill-filter-card" data-category="web-mobile">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Mobile Development</h3>
+        <span class="tag gold">Cross-Platform</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Expanding beyond the browser into native and cross-platform mobile experiences.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Flutter &amp; Dart</b>
+          <span class="tag">Learning &amp; Growing</span>
+        </div>
+        <p>Building cross-platform mobile user interfaces using widget trees, Material &amp; Cupertino components, responsive screen layouts, and state management basics.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Mobile UI/UX Principles</b>
+          <span class="tag">Applied</span>
+        </div>
+        <p>Designing thumb-friendly navigation, quick tap targets, form inputs with virtual keyboards, and offline-friendly user feedback.</p>
+      </div>
+    </article>
+
+    <!-- NETWORKING & IT SUPPORT -->
+    <article class="box skill-category skill-filter-card" data-category="networking">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Networking &amp; IT Infrastructure</h3>
+        <span class="tag gold">Infrastructure</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Practical knowledge of network protocols, office connectivity, and workstation maintenance.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Computer Networking</b>
+          <span class="tag">Practical Knowledge</span>
+        </div>
+        <p>LAN setup, TCP/IP protocol suite, IPv4 addressing &amp; subnetting, basic router/switch configuration, network patch cabling, and ping/traceroute diagnostic tools.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Computer Troubleshooting</b>
+          <span class="tag">Hands-on</span>
+        </div>
+        <p>Diagnosing hardware malfunctions, component replacement (RAM, SSD, power supply), OS re-installation, driver management, and system performance tuning.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Basic IT Support</b>
+          <span class="tag">Government Office</span>
+        </div>
+        <p>Providing office IT assistance during DICT internship: printer configuration, network resource sharing, user account setup, and peripheral troubleshooting.</p>
+      </div>
+    </article>
+
+    <!-- DEVELOPER TOOLS & WORKFLOW -->
+    <article class="box alt skill-category skill-filter-card" data-category="tools">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Developer Tools &amp; Workflow</h3>
+        <span class="tag gold">Workflow</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Industry tools for source control, local development environments, and collaborative development.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Git &amp; GitHub</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Branching strategies, merging, commit version tracking, resolving conflicts, remote repository syncing, and collaborating with development teams.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Local Dev Stacks (XAMPP / Apache)</b>
+          <span class="tag">Daily Tool</span>
+        </div>
+        <p>Configuring local web servers, Apache HTTP server, PHP runtime configuration, and MySQL service management for rapid testing.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>VS Code &amp; Dev Tools</b>
+          <span class="tag">Proficient</span>
+        </div>
+        <p>Code formatting, linting, browser developer tools (Inspect, Console, Network waterfall, Storage), and API testing tools.</p>
+      </div>
+    </article>
+
+    <!-- CYBERSECURITY & PROBLEM SOLVING -->
+    <article class="box alt skill-category skill-filter-card" data-category="security">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Security &amp; Problem Solving</h3>
+        <span class="tag gold">Hack4Gov</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Security mindset developed through competitive cybersecurity hackathons and government projects.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Web Application Security Basics</b>
+          <span class="tag">Award-Winning</span>
+        </div>
+        <p>Understanding OWASP vulnerabilities: SQL injection mitigation through prepared statements, XSS defense, secure session handling, and validation.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>CTF / Hackathon Problem Solving</b>
+          <span class="tag">1st Place Provincial</span>
+        </div>
+        <p>Rapid triage, digital clue extraction, packet sniffing fundamentals, and high-pressure team problem solving during Hack4Gov Provincial &amp; Regional competitions.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Analytical Thinking &amp; Debugging</b>
+          <span class="tag">Core Strength</span>
+        </div>
+        <p>Step-by-step root cause analysis, error log tracing, reading stack traces, and iteratively testing fixes without breaking existing features.</p>
+      </div>
+    </article>
+
+    <!-- PROFESSIONAL & SOFT SKILLS -->
+    <article class="box skill-category skill-filter-card" data-category="languages">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>Professional &amp; Soft Skills</h3>
+        <span class="tag gold">Teamwork</span>
+      </div>
+      <p style="color:var(--ink-soft);font-size:.95rem;">Workplace qualities demonstrated during government internships and team projects.</p>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Teamwork &amp; Communication</b>
+          <span class="tag">Proven</span>
+        </div>
+        <p>Collaborated smoothly with fellow DICT interns, project supervisors, and non-technical government staff to understand needs and deliver functional software.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>Fast Learner &amp; Adaptability</b>
+          <span class="tag">Continuous</span>
+        </div>
+        <p>Quickly picking up new libraries, APIs, and frameworks when a project requires them, such as barcode scanning hardware and web GIS mapping.</p>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-item-header">
+          <b>User-Centric Mindset</b>
+          <span class="tag">Practical Focus</span>
+        </div>
+        <p>Designing interfaces that are easy to use for everyday citizens, office visitors, and busy staff members rather than overly complicated designs.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- HOW SKILLS CONNECT TO PROJECTS -->
+  <section style="margin-top:20px;">
+    <div class="sec-head">
+      <h2>How These Skills <span class="hl">Apply to Real Work</span></h2>
+      <p>I don't just list skills on paper — here is how they power my finished projects.</p>
+    </div>
+
+    <div class="grid3">
+      <div class="box">
+        <span class="tag gold">Internship</span>
+        <h3 style="margin-top:8px;">Queue Management System</h3>
+        <p style="margin-top:8px;font-size:.95rem;">Built for Congresswoman Doc Marly Hofer's office to streamline visitor flow.</p>
+        <div class="chips" style="margin-top:14px;">
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">CSS</span>
+        </div>
+      </div>
+
+      <div class="box alt">
+        <span class="tag gold">Thesis Project</span>
+        <h3 style="margin-top:8px;">Disaster Response Web Map</h3>
+        <p style="margin-top:8px;font-size:.95rem;">Emergency incident mapping for the municipality of Ipil, Zamboanga Sibugay.</p>
+        <div class="chips" style="margin-top:14px;">
+          <span class="chip">Leaflet.js</span>
+          <span class="chip">OpenStreetMap</span>
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+        </div>
+      </div>
+
+      <div class="box">
+        <span class="tag gold">Personal Build</span>
+        <h3 style="margin-top:8px;">POS Barcode Scanner</h3>
+        <p style="margin-top:8px;font-size:.95rem;">Inventory tracking and point-of-sale checkout for retail store efficiency.</p>
+        <div class="chips" style="margin-top:14px;">
+          <span class="chip">JavaScript</span>
+          <span class="chip">Barcode API</span>
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-top:32px;justify-content:center;">
+      <a class="btn primary" href="projects.html">View Full Projects Page →</a>
+      <a class="btn" href="certificates.html">View Certificates &amp; Credentials →</a>
+      <a class="btn" href="contact.html">Contact Michael →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>Michael B. Martinez · Junior Developer</span>
+  <span>Hand-crafted doodle sketchbook portfolio</span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
