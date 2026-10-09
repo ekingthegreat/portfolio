@@ -1,0 +1,11 @@
+# Protect sensitive files and environment variables
+<FilesMatch "^\.env|^\.git">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Ensure proper MIME types
+AddDefaultCharset UTF-8

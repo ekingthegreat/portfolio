@@ -162,7 +162,6 @@
         <p class="label">For the office of Congresswoman Doc Marly Hofer</p>
         <div class="kv"><b>What it does</b><span>Manages the flow of visitors waiting to be served, so staff can call people in order and everyone can see their turn.</span></div>
         <div class="kv"><b>Why it was built</b><span>To replace manual, paper-based waiting lines with a clear, organized queue for the office.</span></div>
-        <div class="kv"><b>My role</b><span>Developer on the team contributing to frontend interface and backend queuing logic.</span></div>
         <div class="kv"><b>Technologies</b><span>HTML, CSS, JavaScript, PHP, MySQL</span></div>
         <div class="card-foot"><a class="btn primary" href="experience.html">Read Full Project Breakdown →</a></div>
       </div>
@@ -331,6 +330,7 @@
     <button type="button" data-cat="Programming" aria-pressed="false">Programming</button>
     <button type="button" data-cat="Web Development" aria-pressed="false">Web Development</button>
     <button type="button" data-cat="IT & Networking" aria-pressed="false">IT &amp; Networking</button>
+    <button type="button" data-cat="Digital Skills" aria-pressed="false">Digital Skills</button>
   </div>
   <div class="grid3" id="certGrid"></div>
   <div style="margin-top:20px;text-align:center;">
@@ -407,7 +407,11 @@
       <div><span class="label">LinkedIn</span><a class="v" href="https://linkedin.com/in/ekingthegreat" target="_blank" rel="noopener noreferrer">linkedin.com/in/ekingthegreat</a></div>
       <div style="margin-top:10px;"><a class="btn" href="contact.html">More Contact Details &amp; FAQs →</a></div>
     </div>
-    <form class="box alt" id="contactForm" novalidate>
+    <form class="box alt" id="contactForm" method="POST" action="https://api.web3forms.com/submit" novalidate>
+      <!-- Web3Forms Access Key (https://web3forms.com) -->
+      <input type="hidden" name="access_key" value="6c5a62f3-d91c-48b9-ae03-ede1886ae398">
+      <input type="hidden" name="from_name" value="Michael Martinez Portfolio">
+      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label for="cName">Name<input id="cName" name="name" type="text" autocomplete="name" required></label>
       <label for="cEmail">Email<input id="cEmail" name="email" type="email" autocomplete="email" required></label>
       <label for="cMsg">Message<textarea id="cMsg" name="message" required></textarea></label>

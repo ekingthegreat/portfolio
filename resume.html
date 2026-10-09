@@ -48,151 +48,47 @@
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
       <div>
         <h1>Curriculum <span class="hl">Vitae</span></h1>
-        <p class="subtitle">Complete professional resume formatted for both screen review and standard print export.</p>
+        <p class="subtitle">Official resume document available for preview, download, and high-quality printing.</p>
       </div>
       <div class="btn-row">
-        <button type="button" class="btn primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
-        <a class="btn" href="contact.html">Contact Michael</a>
+        <a class="btn primary" href="documents/resume.pdf" download="Michael_Martinez_Resume.pdf">📥 Download PDF</a>
+        <button type="button" class="btn" onclick="printResume()">🖨️ Print Resume</button>
+        <a class="btn" href="documents/resume.pdf" target="_blank" rel="noopener noreferrer">↗ Open in New Tab</a>
       </div>
     </div>
   </header>
 
-  <!-- PRINTABLE RESUME SHEET -->
-  <article class="box" style="margin-bottom:32px;">
-
-    <!-- RESUME HEADER -->
-    <div style="border-bottom:2.5px solid var(--ink);padding-bottom:16px;margin-bottom:20px;text-align:center;">
-      <h1 style="font-size: clamp(2.2rem, 5vw, 3.2rem);margin-bottom:4px;">MICHAEL B. MARTINEZ</h1>
-      <p style="font-family:var(--display);font-size:1.3rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;">
-        Junior Developer &nbsp;|&nbsp; BS Computer Science Graduate (Major in Computer Programming)
-      </p>
-      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:8px 16px;font-size:.95rem;color:var(--ink-soft);">
-        <span>📧 <a href="mailto:your.email@example.com" style="text-decoration:underline;">your.email@example.com</a></span>
-        <span>📱 +63 000 000 0000</span>
-        <span>📍 Zamboanga Peninsula, Philippines</span>
-        <span>🌐 <a href="index.html" style="text-decoration:underline;">Portfolio</a></span>
-        <span>💻 <a href="https://github.com/your-username" target="_blank" style="text-decoration:underline;">GitHub</a></span>
-        <span>👔 <a href="https://linkedin.com/in/your-name" target="_blank" style="text-decoration:underline;">LinkedIn</a></span>
-      </div>
-    </div>
-
-    <!-- RESUME TWO-COLUMN / SECTION LAYOUT -->
-    <div class="resume-grid">
-
-      <!-- LEFT COLUMN -->
-      <div>
-        <!-- SUMMARY -->
-        <div class="rs">
-          <h3>Professional Summary</h3>
-          <p>Passionate Computer Science graduate majoring in Computer Programming from Western Mindanao State University with hands-on government development experience at DICT. Proven capability in building real civic software (Queue Management System) and earning 1st Place in the Hack4Gov Provincial Cybersecurity Competition. Ready to contribute immediately to entry-level software or web development teams.</p>
+  <!-- EMBEDDED RESUME DOCUMENT VIEWER -->
+  <section style="padding-top:0;">
+    <div class="resume-frame-card">
+      <div class="resume-frame-bar no-print">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span class="tag gold" style="margin:0;">Official Resume</span>
+          <span style="font-family:var(--display);font-size:1.15rem;font-weight:700;">documents/resume.pdf</span>
         </div>
-
-        <!-- EDUCATION -->
-        <div class="rs">
-          <h3>Education</h3>
-          <p><strong>Bachelor of Science in Computer Science (BSCS)</strong><br>
-          <em>Major in Computer Programming</em><br>
-          Western Mindanao State University (WMSU)<br>
-          <span class="note">Coursework: OOP, Data Structures, Web Development, Relational Databases, Computer Networks, Software Engineering.</span></p>
-        </div>
-
-        <!-- SKILLS MATRIX -->
-        <div class="rs">
-          <h3>Technical Skills</h3>
-          <p><strong>Languages:</strong> PHP, JavaScript (ES6+), C++, HTML5, CSS3, SQL</p>
-          <p><strong>Databases:</strong> MySQL, Relational Schemas, Firebase</p>
-          <p><strong>Web &amp; Mobile:</strong> Leaflet.js, OpenStreetMap, Flutter (Basics), Responsive UI</p>
-          <p><strong>Tools:</strong> Git, GitHub, VS Code, XAMPP, Apache, Postman</p>
-          <p><strong>IT &amp; Networks:</strong> LAN setup, TCP/IP, IP Subnetting, PC Troubleshooting</p>
-          <p><strong>Security:</strong> Web vulnerability mitigation, CTF incident triage (Hack4Gov)</p>
-        </div>
-
-        <!-- HONORS & COMPETITIONS -->
-        <div class="rs">
-          <h3>Awards &amp; Competitions</h3>
-          <p><strong>1st Place Champion</strong><br>
-          Hack4Gov Provincial Competition (DICT, 2025)</p>
-          <p style="margin-top:6px;"><strong>7th Place Finalist</strong><br>
-          Hack4Gov Regional Finals Competition (DICT, 2025)</p>
+        <div class="btn-row" style="gap:8px;">
+          <a class="btn primary" href="documents/resume.pdf" download="Michael_Martinez_Resume.pdf" style="font-size:.9rem;padding:5px 14px;">📥 Download PDF</a>
+          <button type="button" class="btn" onclick="printResume()" style="font-size:.9rem;padding:5px 14px;">🖨️ Print</button>
+          <a class="btn" href="documents/resume.pdf" target="_blank" rel="noopener noreferrer" style="font-size:.9rem;padding:5px 14px;">↗ Fullscreen</a>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
-      <div>
-        <!-- WORK EXPERIENCE -->
-        <div class="rs">
-          <h3>Work Experience</h3>
-          <div class="row">
-            <b>Government Intern / Developer</b>
-            <span class="label">June 2026 – Present</span>
+      <div class="resume-pdf-container">
+        <iframe id="resumePdfFrame" src="documents/resume.pdf#toolbar=1&navpanes=0" title="Michael B. Martinez Resume PDF">
+          <div style="padding:48px 24px;text-align:center;color:var(--ink);">
+            <p style="font-size:1.15rem;margin-bottom:14px;">Your browser does not support inline PDF viewing.</p>
+            <a class="btn primary" href="documents/resume.pdf" download="Michael_Martinez_Resume.pdf">Download Resume PDF</a>
           </div>
-          <p><em>Department of Information and Communications Technology (DICT)</em></p>
-          <ul style="padding-left:1.2em;margin-top:6px;margin-bottom:8px;">
-            <li>Co-developed and deployed the Queue Management System for the office of Congresswoman Doc Marly Hofer to automate constituent service lines.</li>
-            <li>Built backend database routines using PHP and MySQL to manage multi-counter calling, service tickets, and daily audit logs.</li>
-            <li>Collaborated closely with government personnel and intern teammates following agile development sprints.</li>
-            <li>Diagnosed workstation issues, assisted in LAN configuration, and supported office hardware needs.</li>
-          </ul>
-        </div>
-
-        <!-- KEY PROJECTS -->
-        <div class="rs">
-          <h3>Key Projects</h3>
-          
-          <div style="margin-bottom:12px;">
-            <div class="row">
-              <b>Emergency Disaster Response Web Map</b>
-              <span class="label">Thesis Capstone</span>
-            </div>
-            <p style="font-size:.95rem;">Geospatial disaster reporting platform for Ipil, Zamboanga Sibugay utilizing Leaflet.js, OpenStreetMap, PHP, and MySQL. Features interactive incident pins, GPS auto-detection, and responder dispatch boards.</p>
-          </div>
-
-          <div style="margin-bottom:12px;">
-            <div class="row">
-              <b>POS Barcode Scanner &amp; Inventory</b>
-              <span class="label">Personal Project</span>
-            </div>
-            <p style="font-size:.95rem;">Full-stack retail checkout system utilizing JavaScript, Barcode Scanning API, PHP, and MySQL. Features instant barcode input parsing, real-time cart computation, stock alerts, and receipt printing.</p>
-          </div>
-
-          <div style="margin-bottom:12px;">
-            <div class="row">
-              <b>Queue Management System</b>
-              <span class="label">DICT Internship</span>
-            </div>
-            <p style="font-size:.95rem;">Civic queue tracking web application built with PHP, MySQL, JavaScript, and CSS. Replaced manual waiting lines with categorized tickets and a live lobby screen.</p>
-          </div>
-
-          <div>
-            <div class="row">
-              <b>Hand-Drawn Doodle Portfolio</b>
-              <span class="label">Front-End UI</span>
-            </div>
-            <p style="font-size:.95rem;">Modular multi-page responsive web portfolio with custom SVG artwork, dynamic certificate filtering, and print-optimized stylesheet.</p>
-          </div>
-        </div>
-
-        <!-- REFERENCES -->
-        <div class="rs">
-          <h3>References</h3>
-          <p class="note">Professional, academic, and government internship references available immediately upon request.</p>
-        </div>
+        </iframe>
       </div>
-
     </div>
-
-    <!-- FOOTER NOTE -->
-    <div class="no-print" style="margin-top:24px;border-top:1.5px dashed var(--ink-soft);padding-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-      <span class="note">Click "Print / Save as PDF" above to generate a clean, print-formatted resume document.</span>
-      <button type="button" class="btn" style="font-size:.9rem;padding:4px 12px;" onclick="window.print()">Print Document</button>
-    </div>
-  </article>
+  </section>
 
   <!-- CTA -->
   <div class="btn-row no-print" style="justify-content:center;margin-top:20px;">
     <a class="btn primary" href="contact.html">Contact Michael Martinez →</a>
     <a class="btn" href="projects.html">View Featured Projects →</a>
-    <a class="btn" href="skills.html">View Technical Skills →</a>
+    <a class="btn" href="certificates.html">View Certificates →</a>
     <a class="btn" href="index.html">← Back to Home Page</a>
   </div>
 
@@ -204,5 +100,25 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+  function printResume() {
+    var frame = document.getElementById('resumePdfFrame');
+    try {
+      if (frame && frame.contentWindow) {
+        frame.contentWindow.focus();
+        frame.contentWindow.print();
+        return;
+      }
+    } catch (err) {
+      console.warn('Iframe print restricted:', err);
+    }
+    var win = window.open('documents/resume.pdf', '_blank');
+    if (win) {
+      win.focus();
+    } else {
+      window.print();
+    }
+  }
+</script>
 </body>
 </html>
