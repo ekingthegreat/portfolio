@@ -1055,6 +1055,29 @@ body.modal-open {
 }
 
 /* ==========================================================================
+   Contact Sent Confirmation Modal
+   ========================================================================== */
+.modal-card.sent-modal-card {
+  max-width: 500px;
+  padding: 32px 28px 26px;
+}
+
+.sent-modal-card .modal-doodle {
+  width: 104px;
+  height: 84px;
+  margin-bottom: 6px;
+}
+
+.sent-modal-card h2 {
+  font-size: clamp(2rem, 5vw, 2.4rem);
+  margin-block: 6px 10px;
+}
+
+.sent-modal-card .modal-details {
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
    Certificate Viewer Modal
    ========================================================================== */
 .modal-card.cert-modal-card {

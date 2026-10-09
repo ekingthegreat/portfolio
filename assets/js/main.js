@@ -295,18 +295,130 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 3. Contact Form Submission (Web3Forms API - https://web3forms.com)
+  // 3. Contact Form Submission (Web3Forms API & Local PHPMailer Support)
   var WEB3FORMS_ACCESS_KEY = '6c5a62f3-d91c-48b9-ae03-ede1886ae398';
 
-  var contactForm = document.getElementById('contactForm');
-  if (contactForm) {
+  // Sent Confirmation Modal
+  function createSentModalElement() {
+    var modal = document.createElement('div');
+    modal.id = 'sentModal';
+    modal.className = 'modal-overlay';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'sentModalTitle');
+    modal.setAttribute('aria-describedby', 'sentModalDesc');
+    modal.innerHTML =
+      '<div class="modal-card sent-modal-card">' +
+        '<button type="button" class="modal-close" id="sentModalCloseBtn" aria-label="Close notification">&times;</button>' +
+        '<div class="modal-badge-row">' +
+          '<span class="tag gold">&#10003; Message Dispatched</span>' +
+        '</div>' +
+        '<svg class="modal-doodle" viewBox="0 0 120 100" role="img" aria-label="Mail sent doodle">' +
+          '<g fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">' +
+            '<ellipse cx="60" cy="88" rx="38" ry="7" fill="var(--paper-2)" stroke-width="2.5"/>' +
+            '<rect x="22" y="30" width="76" height="50" rx="8" fill="var(--paper)" stroke-width="3.5"/>' +
+            '<path d="M24 33 L60 60 L96 33" stroke-width="3.5"/>' +
+            '<path d="M24 78 L48 52" stroke-width="2.5"/>' +
+            '<path d="M96 78 L72 52" stroke-width="2.5"/>' +
+            '<rect x="74" y="36" width="16" height="18" rx="3" fill="var(--gold)" stroke-width="2"/>' +
+            '<path d="M78 45 Q82 41 86 45 Q82 50 82 50 Z" fill="var(--red)" stroke="var(--ink)" stroke-width="1.5"/>' +
+            '<path d="M12 28 Q18 20 26 24" stroke-width="2.5"/>' +
+            '<path d="M96 18 L104 18" stroke-width="2.5"/>' +
+            '<path d="M100 14 L100 22" stroke-width="2.5"/>' +
+            '<path d="M88 12 Q94 8 98 12" stroke="var(--gold)" stroke-width="2"/>' +
+          '</g>' +
+        '</svg>' +
+        '<h2 id="sentModalTitle">Message <span class="hl">Sent!</span></h2>' +
+        '<p id="sentModalDesc">Thank you! Your message has been sent successfully to Michael Martinez.</p>' +
+        '<div class="modal-details">' +
+          '<div class="item">' +
+            '<span class="bullet">&#10003;</span>' +
+            '<span><strong>Delivered To:</strong> Michael B. Martinez (<a href="mailto:michaelmrtnz10@gmail.com" style="color:var(--ink);text-decoration:underline;font-weight:bold;">michaelmrtnz10@gmail.com</a>)</span>' +
+          '</div>' +
+          '<div class="item">' +
+            '<span class="bullet">&#9201;</span>' +
+            '<span><strong>Response Time:</strong> Typically within 24 to 48 hours.</span>' +
+          '</div>' +
+          '<div class="item">' +
+            '<span class="bullet">&#9998;</span>' +
+            '<span><strong>Direct Channels:</strong> You can also connect via <a href="https://linkedin.com/in/ekingthegreat" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">LinkedIn</a> or <a href="https://github.com/ekingthegreat" target="_blank" rel="noopener noreferrer" style="color:var(--ink);text-decoration:underline;">GitHub</a>.</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="btn-row" style="justify-content:center;">' +
+          '<button type="button" class="btn primary" id="sentModalDoneBtn">Awesome, Got It! &rarr;</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    bindSentModalEvents(modal);
+    return modal;
+  }
+
+  function bindSentModalEvents(modal) {
+    if (!modal || modal.dataset.eventsBound === 'true') return;
+    modal.dataset.eventsBound = 'true';
+
+    var doneBtn = modal.querySelector('#sentModalDoneBtn');
+    var closeBtn = modal.querySelector('#sentModalCloseBtn');
+
+    if (doneBtn) doneBtn.addEventListener('click', closeSentModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeSentModal);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeSentModal();
+      }
+    });
+  }
+
+  function openSentModal(senderName) {
+    var modal = document.getElementById('sentModal') || createSentModalElement();
+    bindSentModalEvents(modal);
+
+    var desc = modal.querySelector('#sentModalDesc');
+    if (desc) {
+      var displayName = senderName ? esc(senderName) : 'there';
+      desc.innerHTML = 'Thank you, <strong>' + displayName + '</strong>! Your message has been sent successfully. Michael has received your inquiry and will be in touch shortly.';
+    }
+
+    modal.classList.add('active');
+    document.body.classList.add('modal-open');
+
+    var doneBtn = modal.querySelector('#sentModalDoneBtn');
+    if (doneBtn) {
+      setTimeout(function () {
+        doneBtn.focus();
+      }, 50);
+    }
+  }
+
+  function closeSentModal() {
+    var modal = document.getElementById('sentModal');
+    if (modal) {
+      modal.classList.remove('active');
+    }
+    if (!document.querySelector('.modal-overlay.active')) {
+      document.body.classList.remove('modal-open');
+    }
+  }
+
+  window.openSentModal = openSentModal;
+  window.closeSentModal = closeSentModal;
+
+  var contactForms = document.querySelectorAll('form#contactForm');
+  contactForms.forEach(function (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var m = document.getElementById('formMsg');
-      var name = document.getElementById('cName') ? document.getElementById('cName').value.trim() : '';
-      var email = document.getElementById('cEmail') ? document.getElementById('cEmail').value.trim() : '';
-      var msg = document.getElementById('cMsg') ? document.getElementById('cMsg').value.trim() : '';
+      var m = contactForm.querySelector('#formMsg') || document.getElementById('formMsg');
+      var nameInput = contactForm.querySelector('#cName') || contactForm.querySelector('[name="name"]');
+      var emailInput = contactForm.querySelector('#cEmail') || contactForm.querySelector('[name="email"]');
+      var subjectInput = contactForm.querySelector('#cSubject') || contactForm.querySelector('[name="subject"]');
+      var msgInput = contactForm.querySelector('#cMsg') || contactForm.querySelector('[name="message"]');
       var submitBtn = contactForm.querySelector('button[type="submit"]');
+
+      var name = nameInput ? nameInput.value.trim() : '';
+      var email = emailInput ? emailInput.value.trim() : '';
+      var subject = subjectInput ? subjectInput.value.trim() : 'General Inquiry';
+      var msg = msgInput ? msgInput.value.trim() : '';
 
       if (!name || !email || !msg) {
         if (m) {
@@ -318,18 +430,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var formData = new FormData(contactForm);
 
-      // Resolve Access Key
+      // Resolve Access Key & formal metadata
       var formKey = formData.get('access_key');
       var currentKey = (formKey && formKey !== 'YOUR_ACCESS_KEY_HERE') ? formKey : WEB3FORMS_ACCESS_KEY;
       formData.set('access_key', currentKey);
-
-      if (!currentKey || currentKey === 'YOUR_ACCESS_KEY_HERE') {
-        if (m) {
-          m.style.color = 'var(--red)';
-          m.innerHTML = 'Setup required: Please add your free Web3Forms Access Key in <code>contact.html</code> or <code>main.js</code>.<br><a href="https://web3forms.com" target="_blank" style="text-decoration:underline;font-weight:bold;color:var(--ink);">Get your free key at web3forms.com &rarr;</a>';
-        }
-        return;
-      }
+      formData.set('from_name', name + ' (Portfolio Contact)');
+      formData.set('replyto', email);
+      formData.set('subject', '[Portfolio Contact] ' + (subject ? subject : 'New message from ' + name));
 
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -340,43 +447,79 @@ document.addEventListener('DOMContentLoaded', function () {
         m.textContent = 'Sending your message to Michael...';
       }
 
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (data) {
+      function onSuccess() {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send Message →';
         }
-        if (data.success) {
-          if (m) {
-            m.style.color = '#1b7430';
-            m.textContent = 'Thank you, ' + name + '! Your message has been sent successfully. I will get back to you shortly.';
-          }
-          contactForm.reset();
-        } else {
-          if (m) {
-            m.style.color = 'var(--red)';
-            m.textContent = data.message || 'Could not send message. Please try again.';
-          }
+        if (m) {
+          m.style.color = '#1b7430';
+          m.textContent = 'Thank you, ' + name + '! Your message has been sent successfully. I will get back to you shortly.';
         }
-      })
-      .catch(function () {
+        contactForm.reset();
+        openSentModal(name);
+      }
+
+      function onError(errMsg) {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send Message →';
         }
         if (m) {
           m.style.color = 'var(--red)';
-          m.textContent = 'Unable to connect to the mail service. Please check your internet connection or email directly.';
+          m.textContent = errMsg || 'Could not send message. Please try again.';
         }
-      });
+      }
+
+      var isLocalPhp = (window.location.protocol === 'http:' || window.location.protocol === 'https:') &&
+                       (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+      if (isLocalPhp) {
+        fetch('send-mail.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.status === 'success' || data.success) {
+            onSuccess();
+          } else {
+            sendViaWeb3Forms();
+          }
+        })
+        .catch(function () {
+          sendViaWeb3Forms();
+        });
+      } else {
+        sendViaWeb3Forms();
+      }
+
+      function sendViaWeb3Forms() {
+        if (!currentKey || currentKey === 'YOUR_ACCESS_KEY_HERE') {
+          onError('Setup required: Please add your free Web3Forms Access Key in contact.html.');
+          return;
+        }
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          if (data.success) {
+            onSuccess();
+          } else {
+            onError(data.message || 'Could not send message. Please try again.');
+          }
+        })
+        .catch(function () {
+          onError('Unable to connect to the mail service. Please check your internet connection or email directly.');
+        });
+      }
     });
-  }
+  });
 
   // 4. Skills Filter (for skills.html)
   var skillFilters = document.getElementById('skillFilters');
@@ -517,6 +660,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if ((e.key === 'Escape' || e.key === 'Esc') && document.body.classList.contains('modal-open')) {
       closeWipModal();
       closeCertModal();
+      closeSentModal();
     }
   });
 
